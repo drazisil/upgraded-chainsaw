@@ -10,3 +10,6 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# Temporary data that should not be commited to repo
+data
