@@ -7,7 +7,7 @@
     "node": ">= 10"
   },
   "scripts": {
-    "test:test": "ava --tap | tap-xunit > reports/ava/ava.xml",
+    "test:test": "mkdir -p reports/ava && ava --tap | tap-xunit > reports/ava/ava.xml",
     "test:coverage": "nyc --reporter=html --reporter=text ava",
     "test": "npm run test:test && npm run test:coverage"
   },
