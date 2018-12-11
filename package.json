@@ -1,0 +1,30 @@
+{
+  "name": "upgraded-chainsaw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 10"
+  },
+  "scripts": {
+    "test:test": "ava --tap | tap-xunit > reports/ava/ava.xml",
+    "test:coverage": "nyc --reporter=html --reporter=text ava",
+    "test": "npm run test:test && npm run test:coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:drazisil/upgraded-chainsaw.git"
+  },
+  "keywords": [],
+  "author": "Joseph W Becher <jwbecher@drazisil.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drazisil/upgraded-chainsaw/issues"
+  },
+  "homepage": "https://github.com/drazisil/upgraded-chainsaw#readme",
+  "devDependencies": {
+    "ava": "1.0.0-rc.2",
+    "nyc": "^13.1.0",
+    "tap-xunit": "^2.3.0"
+  }
+}
