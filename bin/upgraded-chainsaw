@@ -2,4 +2,5 @@
 
 const upgradedChainsaw = require("../src/index.js")
 
-upgradedChainsaw.main()
+const args = process.argv
+upgradedChainsaw.main(args)
