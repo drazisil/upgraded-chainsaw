@@ -7,9 +7,7 @@
     "node": ">= 10"
   },
   "scripts": {
-    "test:test": "mkdir -p reports/ava && ava --tap | tap-xunit > reports/ava/ava.xml",
-    "test:coverage": "nyc --reporter=html --reporter=text ava",
-    "test": "npm run test:test && npm run test:coverage"
+    "test": "mkdir -p reports/jest && jest"
   },
   "repository": {
     "type": "git",
@@ -23,8 +21,24 @@
   },
   "homepage": "https://github.com/drazisil/upgraded-chainsaw#readme",
   "devDependencies": {
-    "ava": "1.0.0-rc.2",
-    "nyc": "^13.1.0",
-    "tap-xunit": "^2.3.0"
+    "jest": "^23.6.0",
+    "jest-junit": "^5.2.0"
+  },
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "html",
+      "text-summary"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "testEnvironment": "node"
+  },
+  "jest-junit": {
+    "outputDirectory": "./reports/jest"
   }
 }
