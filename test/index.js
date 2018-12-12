@@ -1,7 +1,8 @@
 import test from 'ava'
+const upgradedChainsaw = require('../src/index')
 
 test('foo', t => {
-  t.pass()
+  t.is(upgradedChainsaw.hello(), 'Hello, world')
 })
 
 test('bar', async t => {
