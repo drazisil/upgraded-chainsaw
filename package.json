@@ -27,10 +27,15 @@
   "jest": {
     "clearMocks": true,
     "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
     "coverageDirectory": "coverage",
     "coverageReporters": [
       "html",
-      "text-summary"
+      "text"
     ],
     "reporters": [
       "default",
