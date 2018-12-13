@@ -19,3 +19,14 @@ test("that trimArgs can handle an empty array", () => {
 test("that checkArgsLength throws with no args", async () => {
   await expect(upgradedChainsaw.checkArgsLength([])).rejects.toThrow();
 });
+
+test("that readBinaryFile returns a buffer", async () => {
+  const fileContents = await upgradedChainsaw.readBinaryFile("./data/curl");
+  expect(fileContents).toBeInstanceOf(Buffer);
+});
+
+test("that readBinaryFile throws when unable to read file", async () => {
+  await expect(
+    upgradedChainsaw.readBinaryFile("./data/not-curl")
+  ).rejects.toThrow();
+});
