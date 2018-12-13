@@ -32,29 +32,29 @@ test("that readBinaryFile throws when unable to read file", async () => {
   ).rejects.toThrow();
 });
 
-test("that getFileSig can identify an executable", () => {
-  expect(
+test("that getFileSig can identify an executable", async () => {
+  await expect(
     upgradedChainsaw.getFileSig(
       fileSignatures,
       Buffer.from([0x21, 0x3c, 0x61, 0x72, 0x63, 0x68, 0x3e])
     )
-  ).toEqual("executable");
+  ).resolves.toEqual("executable");
 });
 
-test("that getFileSig can identify a file signature with an extended byte stream", () => {
-  expect(
+test("that getFileSig can identify a file signature with an extended byte stream", async () => {
+  await expect(
     upgradedChainsaw.getFileSig(
       fileSignatures,
       Buffer.from([0x21, 0x3c, 0x61, 0x72, 0x63, 0x68, 0x3e, 0xff, 0x1b])
     )
-  ).toEqual("executable");
+  ).resolves.toEqual("executable");
 });
 
-test('that getFileSig returns "unknown" on unknown file', () => {
-  expect(
+test("that getFileSig throws on unknown file", async () => {
+  await expect(
     upgradedChainsaw.getFileSig(
       fileSignatures,
       Buffer.from([0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06])
     )
-  ).toEqual("unknown");
+  ).rejects.toThrow();
 });

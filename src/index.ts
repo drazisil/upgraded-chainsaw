@@ -1,10 +1,14 @@
+import * as util from "util";
 import * as fs from "fs";
-import { IFileSig, fileSignatures } from "../src/fileSignatures";
+import { IFileSig, fileSignatures } from "./fileSignatures";
+
+const fsReadFile = util.promisify(fs.readFile);
+
 export function hello() {
   return "Hello, new world";
 }
 
-export function trimArgs(args: String[]) {
+export function trimArgs(args: string[]) {
   return args.slice(2);
 }
 
@@ -13,7 +17,7 @@ export function usage() {
     Usage: upgraded-chainsaw <filename>`;
 }
 
-export async function checkArgsLength(args: String[]) {
+export async function checkArgsLength(args: string[]) {
   if (args.length === 0) {
     throw new Error(usage());
   }
@@ -21,31 +25,29 @@ export async function checkArgsLength(args: String[]) {
 }
 
 export async function readBinaryFile(filePath: string) {
-  return new Promise(function(resolve, reject) {
-    fs.readFile(filePath, (err, contents) => {
-      if (err) {
-        reject(new Error(`Error reading ${filePath}: ${err}`));
-      }
-      resolve(contents);
-    });
-  });
+  try {
+    return await fsReadFile(filePath);
+  } catch (err) {
+    throw new Error(`Error reading ${filePath}: ${err}`);
+  }
 }
 
-export function getFileSig(sigDatabase: IFileSig[], byteStream: Buffer) {
+export async function getFileSig(sigDatabase: IFileSig[], byteStream: Buffer) {
   const result = sigDatabase.find(sig => {
     return sig.signature.equals(byteStream.slice(0, sig.signature.length));
   });
 
   if (result === undefined) {
-    return "unknown";
+    throw new Error(`Error reading file signature: unknown: ${byteStream}`);
   }
   return result.name;
 }
 
-export async function main(args: String[]) {
+export async function main(args: string[]) {
   try {
-    console.dir(await checkArgsLength(trimArgs(args)));
-    console.log(hello());
+    const cleanedArgs = await checkArgsLength(trimArgs(args));
+    const fileContents = await readBinaryFile(cleanedArgs[0]);
+    console.log(getFileSig(fileSignatures, fileContents));
   } catch (error) {
     console.error(error.message);
   }
