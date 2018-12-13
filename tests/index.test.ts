@@ -38,7 +38,7 @@ test("that getFileSig can identify an executable", async () => {
       fileSignatures,
       Buffer.from([0x21, 0x3c, 0x61, 0x72, 0x63, 0x68, 0x3e])
     )
-  ).resolves.toEqual("executable");
+  ).resolves.toEqual("coff executable");
 });
 
 test("that getFileSig can identify a file signature with an extended byte stream", async () => {
@@ -47,7 +47,7 @@ test("that getFileSig can identify a file signature with an extended byte stream
       fileSignatures,
       Buffer.from([0x21, 0x3c, 0x61, 0x72, 0x63, 0x68, 0x3e, 0xff, 0x1b])
     )
-  ).resolves.toEqual("executable");
+  ).resolves.toEqual("coff executable");
 });
 
 test("that getFileSig throws on unknown file", async () => {

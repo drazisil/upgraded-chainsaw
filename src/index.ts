@@ -38,7 +38,11 @@ export async function getFileSig(sigDatabase: IFileSig[], byteStream: Buffer) {
   });
 
   if (result === undefined) {
-    throw new Error(`Error reading file signature: unknown: ${byteStream}`);
+    throw new Error(
+      `Error reading file signature: unknown: ${byteStream
+        .slice(0, 8)
+        .toString("hex")}`
+    );
   }
   return result.name;
 }
@@ -47,7 +51,7 @@ export async function main(args: string[]) {
   try {
     const cleanedArgs = await checkArgsLength(trimArgs(args));
     const fileContents = await readBinaryFile(cleanedArgs[0]);
-    console.log(getFileSig(fileSignatures, fileContents));
+    console.log(await getFileSig(fileSignatures, fileContents));
   } catch (error) {
     console.error(error.message);
   }
