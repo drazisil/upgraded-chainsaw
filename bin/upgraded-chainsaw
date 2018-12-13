@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const upgradedChainsaw = require("../src/index.js")
+const upgradedChainsaw = require("../dist/index.js")
 
 const args = process.argv
 upgradedChainsaw.main(args)

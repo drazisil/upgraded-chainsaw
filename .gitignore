@@ -65,3 +65,6 @@ typings/
 
 # data directory
 data
+
+# typescript output
+dist
