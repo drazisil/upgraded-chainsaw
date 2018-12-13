@@ -1,5 +1,5 @@
 import * as fs from "fs";
-
+import { IFileSig, fileSignatures } from "../src/fileSignatures";
 export function hello() {
   return "Hello, new world";
 }
@@ -29,6 +29,17 @@ export async function readBinaryFile(filePath: string) {
       resolve(contents);
     });
   });
+}
+
+export function getFileSig(sigDatabase: IFileSig[], byteStream: Buffer) {
+  const result = sigDatabase.find(sig => {
+    return sig.signature.equals(byteStream.slice(0, sig.signature.length));
+  });
+
+  if (result === undefined) {
+    return "unknown";
+  }
+  return result.name;
 }
 
 export async function main(args: String[]) {
