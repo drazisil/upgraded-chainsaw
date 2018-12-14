@@ -22,7 +22,7 @@ test("that checkArgsLength throws with no args", async () => {
 });
 
 test("that readBinaryFile returns a buffer", async () => {
-  const fileContents = await upgradedChainsaw.readBinaryFile("./data/curl-x86");
+  const fileContents = await upgradedChainsaw.readBinaryFile("./data/curl-elf");
   expect(fileContents).toBeInstanceOf(Buffer);
 });
 
@@ -57,4 +57,18 @@ test("that getFileSig throws on unknown file", async () => {
       Buffer.from([0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06])
     )
   ).rejects.toThrow();
+});
+
+// Intregration tests
+describe("Intregration tests", () => {
+  test("that we can open an elf binary and correctly identify the file signature", async () => {
+    const fileContents = await upgradedChainsaw.readBinaryFile(
+      "./data/curl-elf"
+    );
+    const fileSig = await upgradedChainsaw.getFileSig(
+      fileSignatures,
+      fileContents
+    );
+    expect(fileSig).toEqual("elf executable");
+  });
 });
