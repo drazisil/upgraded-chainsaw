@@ -7,7 +7,7 @@
     "node": ">= 10"
   },
   "scripts": {
-    "test": "mkdir -p reports/jest && cp $(which curl) ./data/curl && jest"
+    "test": "mkdir -p reports/jest && jest"
   },
   "repository": {
     "type": "git",

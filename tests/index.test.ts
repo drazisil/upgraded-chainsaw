@@ -22,7 +22,7 @@ test("that checkArgsLength throws with no args", async () => {
 });
 
 test("that readBinaryFile returns a buffer", async () => {
-  const fileContents = await upgradedChainsaw.readBinaryFile("./data/curl");
+  const fileContents = await upgradedChainsaw.readBinaryFile("./data/curl-x86");
   expect(fileContents).toBeInstanceOf(Buffer);
 });
 
