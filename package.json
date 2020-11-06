@@ -39,9 +39,7 @@
     "coverageDirectory": "coverage",
     "coverageReporters": [
       "html",
-      "text",
-      "cobertura",
-      "lcov"
+      "text"
     ],
     "reporters": [
       "default",
