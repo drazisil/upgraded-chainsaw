@@ -1,5 +1,5 @@
 # upgraded-chainsaw
 
-[![CircleCI](https://circleci.com/gh/drazisil/upgraded-chainsaw.svg?style=shield)](https://circleci.com/gh/drazisil/upgraded-chainsaw)
+[![Build Status](https://travis-ci.com/drazisil/upgraded-chainsaw.svg?branch=master)](https://travis-ci.com/drazisil/upgraded-chainsaw)
 
 This is a README
