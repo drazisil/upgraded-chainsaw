@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/drazisil/upgraded-chainsaw#readme",
   "devDependencies": {
-    "tap": "14.11.0"
+    "tap": "15.0.9"
   }
 }
