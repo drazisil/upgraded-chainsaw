@@ -34,8 +34,7 @@ jobs:
       uses: codecov/codecov-action@v1.5.2
       with:
         token: d0280c25-47ca-465b-9a71-b9397c3d1917
-        flags: 
-          - {{ matrix.node-version }}
+        flags: "{{ matrix.node-version }}"
         fail_ci_if_error: true
         name: # optional
         path_to_write_report: codecovReport.txt
