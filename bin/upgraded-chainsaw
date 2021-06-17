@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 
 const upgradedChainsaw = require("../src/index.js")
-const fileSignatures = require('../src/fileSignatures')
+const { SigManager } = require('../src/SigManager')
+
+const sigManager = new SigManager()
 
 const args = process.argv;
 
 try {
     const cleanedArgs = upgradedChainsaw.checkArgsLength(upgradedChainsaw.trimArgs(args));
     const fileContents = upgradedChainsaw.readBinaryFile(cleanedArgs[0]);
-    console.log(upgradedChainsaw.getFileSig(fileSignatures, fileContents));
+    console.log(upgradedChainsaw.getFileSig(sigManager, fileContents));
   } catch (error) {
     console.error(error.message);
   }
