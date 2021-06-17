@@ -31,11 +31,11 @@
   },
   "lint-staged": {
     "**/*.js": [
-      "prettier --write",
-      "eslint --fix"
+      "npx prettier --write",
+      "npx eslint --fix"
     ],
     "**/*.{json,md,yml,yaml,html}": [
-      "prettier --write"
+      "npx prettier --write"
     ]
   }
 }
