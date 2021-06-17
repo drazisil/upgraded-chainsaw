@@ -37,5 +37,8 @@
     "**/*.{json,md,yml,yaml,html}": [
       "npx prettier --write"
     ]
+  },
+  "dependencies": {
+    "sigdb": "1.0.2"
   }
 }

@@ -1,8 +1,8 @@
 const upgradedChainsaw = require('../src/index')
-const { SigManager } = require('../src/sigdb/SigManager')
+const { SigDB } = require('sigdb')
 const tap = require('tap')
 
-const sigManager = new SigManager()
+const sigManager = new SigDB()
 
 tap.equal(upgradedChainsaw.hello(), 'Hello, new world')
 

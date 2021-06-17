@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const upgradedChainsaw = require("../src/index.js")
-const { SigManager } = require('../src/sigdb/SigManager')
+const { SigDB } = require('sigdb')
 
-const sigManager = new SigManager()
+const sigManager = new SigDB()
 
 const args = process.argv;
 
