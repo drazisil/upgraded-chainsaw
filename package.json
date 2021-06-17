@@ -7,6 +7,8 @@
     "node": ">= 10"
   },
   "scripts": {
+    "lint": "eslint --fix",
+    "prepare": "husky install",
     "test": "tap"
   },
   "repository": {
@@ -21,6 +23,19 @@
   },
   "homepage": "https://github.com/drazisil/upgraded-chainsaw#readme",
   "devDependencies": {
+    "eslint": "7.28.0",
+    "eslint-config-prettier": "8.3.0",
+    "husky": "6.0.0",
+    "prettier": "2.3.1",
     "tap": "14.11.0"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "**/*.{json,md,yml,yaml,html}": [
+      "prettier --write"
+    ]
   }
 }
