@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint --fix",
     "prepare": "husky install",
-    "test": "tap"
+    "test": "npx tap"
   },
   "repository": {
     "type": "git",
