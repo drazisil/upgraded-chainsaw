@@ -1,10 +1,10 @@
 const upgradedChainsaw = require('../src/index')
-const { SigManager } = require('../src/SigManager')
+const { SigManager } = require('../src/sigdb/SigManager')
 const tap = require('tap')
 
 const sigManager = new SigManager()
 
-tap.equals(upgradedChainsaw.hello(), 'Hello, new world')
+tap.equal(upgradedChainsaw.hello(), 'Hello, new world')
 
 tap.same(upgradedChainsaw.trimArgs(['1', '2', '3', '4']), ['3', '4'])
 
@@ -24,7 +24,7 @@ tap.throws(() => {
   upgradedChainsaw.readBinaryFile('./data/not-curl')
 }, /Error reading \.\/data\/not-curl: Error: ENOENT: no such file or directory, open '\.\/data\/not-curl'/)
 
-tap.equals(
+tap.equal(
   upgradedChainsaw.getFileSig(
     sigManager,
     Buffer.from([0x21, 0x3c, 0x61, 0x72, 0x63, 0x68, 0x3e]),
@@ -32,7 +32,7 @@ tap.equals(
   'ar archive',
 )
 
-tap.equals(
+tap.equal(
   upgradedChainsaw.getFileSig(
     sigManager,
     Buffer.from([0x21, 0x3c, 0x61, 0x72, 0x63, 0x68, 0x3e, 0xff, 0x1b]),
@@ -51,6 +51,6 @@ tap.throws(() => {
 tap.test('Intregration tests', t => {
   const fileContents = upgradedChainsaw.readBinaryFile('./data/curl-elf')
   const fileSig = upgradedChainsaw.getFileSig(sigManager, fileContents)
-  t.equals(fileSig, 'elf executable')
+  t.equal(fileSig, 'elf executable')
   t.end()
 })

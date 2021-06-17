@@ -1,5 +1,20 @@
+// @ts-check
+
+/**
+ * @module SigManager
+ * @namespace SigManager
+ */
+
+/**
+ * @typedef FileSignatureRecord
+ * @property {Buffer} signature
+ * @property {String} name
+ */
+
+/** Class for manager file signatures (sometimes known as magic numbers) */
 class SigManager {
   constructor() {
+    /** @type {FileSignatureRecord[]} */
     this.fileSignatures = [
       {
         signature: Buffer.from([0x21, 0x3c, 0x61, 0x72, 0x63, 0x68, 0x3e]),
@@ -22,11 +37,14 @@ class SigManager {
 
   /**
    *
-   * @param {function} predicate
-   * @returns
+   * @param {Buffer} haystack
+   * @memberof
+   * @returns FileSignatureRecord
    */
-  find(predicate) {
-    return this.fileSignatures.find(predicate)
+  find(haystack) {
+    return this.fileSignatures.find(sig => {
+      return sig.signature.equals(haystack.slice(0, sig.signature.length))
+    })
   }
 }
 

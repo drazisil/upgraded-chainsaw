@@ -1,3 +1,4 @@
+// @ts-check
 const fs = require('fs')
 
 function hello() {
@@ -31,13 +32,11 @@ function readBinaryFile(filePath) {
 /**
  *
  * @param {SigManager} sigManager
- * @param {*} byteStream
+ * @param {Buffer} byteStream
  * @returns
  */
 function getFileSig(sigManager, byteStream) {
-  const result = sigManager.find(sig => {
-    return sig.signature.equals(byteStream.slice(0, sig.signature.length))
-  })
+  const result = sigManager.find(byteStream)
 
   if (result === undefined) {
     throw new Error(

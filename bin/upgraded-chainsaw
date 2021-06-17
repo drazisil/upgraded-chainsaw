@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const upgradedChainsaw = require("../src/index.js")
-const { SigManager } = require('../src/SigManager')
+const { SigManager } = require('../src/sigdb/SigManager')
 
 const sigManager = new SigManager()
 
