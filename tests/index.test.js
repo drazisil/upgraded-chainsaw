@@ -47,7 +47,7 @@ tap.throws(() => {
   )
 }, /Error reading file signature: unknown: 00010203040506/)
 
-// Intregration tests
+// Integration tests
 tap.test('Intregration tests', t => {
   const fileContents = upgradedChainsaw.readBinaryFile('./data/curl-elf')
   const fileSig = upgradedChainsaw.getFileSig(sigManager, fileContents)
