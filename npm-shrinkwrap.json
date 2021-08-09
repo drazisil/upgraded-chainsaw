@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "dependencies": {
-        "sigdb": "2.1.0"
+        "sigdb": "3.0.1"
       },
       "bin": {
         "upgraded-chainsaw": "bin/upgraded-chainsaw"
@@ -2962,9 +2962,9 @@
       }
     },
     "node_modules/sigdb": {
-      "version": "2.1.0",
-      "resolved": "https://registry.npmjs.org/sigdb/-/sigdb-2.1.0.tgz",
-      "integrity": "sha512-V672kiFCfOt+sZGJIv92E0hmb09ee3RF2gd3fB3roLfZZjAadFFDbywgyPkO/RXfk8OFJ+fhE8s6LEFqS6Cqpg==",
+      "version": "3.0.1",
+      "resolved": "https://registry.npmjs.org/sigdb/-/sigdb-3.0.1.tgz",
+      "integrity": "sha512-xB0bcRevdl7m48b+YH0R6xGaLxS1B9lkYwujaqGbUnmOtNTaOf0vZOcaLulf9BP4yM5KGhOix8lgHJ7z/t+qlg==",
       "hasShrinkwrap": true
     },
     "node_modules/signal-exit": {
@@ -7911,9 +7911,9 @@
       "dev": true
     },
     "sigdb": {
-      "version": "2.1.0",
-      "resolved": "https://registry.npmjs.org/sigdb/-/sigdb-2.1.0.tgz",
-      "integrity": "sha512-V672kiFCfOt+sZGJIv92E0hmb09ee3RF2gd3fB3roLfZZjAadFFDbywgyPkO/RXfk8OFJ+fhE8s6LEFqS6Cqpg=="
+      "version": "3.0.1",
+      "resolved": "https://registry.npmjs.org/sigdb/-/sigdb-3.0.1.tgz",
+      "integrity": "sha512-xB0bcRevdl7m48b+YH0R6xGaLxS1B9lkYwujaqGbUnmOtNTaOf0vZOcaLulf9BP4yM5KGhOix8lgHJ7z/t+qlg=="
     },
     "signal-exit": {
       "version": "3.0.3",
