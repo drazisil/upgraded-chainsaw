@@ -39,6 +39,6 @@
     ]
   },
   "dependencies": {
-    "sigdb": "2.1.0"
+    "sigdb": "3.0.1"
   }
 }
