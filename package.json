@@ -4,7 +4,7 @@
   "description": "",
   "bin": "./bin/upgraded-chainsaw",
   "engines": {
-    "node": ">= 12"
+    "node": ">= v12.22.12"
   },
   "scripts": {
     "lint": "eslint --fix",
