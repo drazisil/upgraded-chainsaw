@@ -22,7 +22,7 @@
         "tap": "16.3.7"
       },
       "engines": {
-        "node": ">= v18.16.1"
+        "node": ">= v18.17.0"
       }
     },
     "node_modules/@aashutoshrathi/word-wrap": {
