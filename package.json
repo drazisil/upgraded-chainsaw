@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/drazisil/upgraded-chainsaw#readme",
   "devDependencies": {
-    "eslint": "9.30.1",
+    "eslint": "9.31.0",
     "eslint-config-prettier": "10.1.5",
     "husky": "9.1.7",
     "prettier": "3.6.2",
